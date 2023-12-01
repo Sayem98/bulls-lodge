@@ -2,9 +2,9 @@ import { Route, Routes, Router } from "react-router-dom";
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { useEffect } from "react";
 import { WagmiConfig } from "wagmi";
-import { arbitrum, mainnet } from "viem/chains";
+import { arbitrum, mainnet, sepolia } from "viem/chains";
 
 // 1. Get projectId at https://cloud.walletconnect.com
 const projectId = "338f7fb164fb123b53b98172fe2ccad9";
@@ -23,7 +23,7 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-const chains = [mainnet, arbitrum];
+const chains = [sepolia];
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 // 3. Create modal

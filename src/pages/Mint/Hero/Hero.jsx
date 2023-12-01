@@ -10,6 +10,24 @@ const Hero = () => {
   const { address } = useAccount();
 
   useEffect(() => {
+    console.log("chain changed");
+    if (window.ethereum && address) {
+      // change chain to sepolia
+      window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: "0xaa36a7" }],
+      });
+
+      // on chain change event listener
+      window.ethereum.on("chainChanged", (chainId) => {
+        if (chainId !== "0xaa36a7") {
+          window.location.reload();
+        }
+      });
+    }
+  }, [address]);
+
+  useEffect(() => {
     const getData = async () => {
       const _web3 = await getWeb3();
       const _bullsLodge = await getBullsLodge(_web3);
