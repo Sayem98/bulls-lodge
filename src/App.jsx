@@ -32,8 +32,6 @@ createWeb3Modal({ wagmiConfig, projectId, chains });
 const App = () => {
   return (
     <>
-      {/* <Home /> */}
-      {/* <Mint /> */}
       <WagmiConfig config={wagmiConfig}>
         <Routes>
           <Route path="/" element={<Home />} />
