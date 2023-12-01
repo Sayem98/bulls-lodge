@@ -1,12 +1,28 @@
-import { Link } from "react-router-dom"
-import AOS from "aos"
-import "aos/dist/aos.css"
-import { useEffect } from "react"
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect, useState } from "react";
+import Countdown from "react-countdown";
 
 const Hero = () => {
+  const [time, setTime] = useState(Date.now() + 10000);
+  const [isCountdownComplete, setIsCountdownComplete] = useState(false);
+
   useEffect(() => {
-    AOS.init()
-  }, [])
+    AOS.init();
+  }, []);
+
+  const renderer = ({ hours, minutes, seconds, completed }) => {
+    if (completed) setIsCountdownComplete(true);
+
+    return (
+      <span>
+        {hours.toString().padStart(2, 0)}:{minutes.toString().padStart(2, 0)}:
+        {seconds.toString().padStart(2, 0)}
+      </span>
+    );
+  };
+
   return (
     <section className="relative pt-32 md:mb-64 mb-12">
       <div className="flex font-Oswald text-center text-xl justify-center ">
@@ -37,12 +53,13 @@ const Hero = () => {
       <div className=" md:flex hidden justify-center">
         <Link to="/mint">
           <button className="font-Oswald font-bold border-4 hover:bg-gradient-to-b hover:from-[#EA00EF]  hover:to-[#FF0099]  border-[#FF0099] p-8 mb-4 text-5xl">
-            MINT TBA
+            {isCountdownComplete ? "MINT" : "MINT TBA"}
           </button>
         </Link>
       </div>
       <p className="font-Oswald font-bold text-center text-6xl mt-36 md:mt-0">
-        01:23:45
+        {/* 01:23:45 */}
+        <Countdown date={time} renderer={renderer} />
       </p>
       <div className="md:hidden font-Oswald text-center text-xl mt-6">
         <h2 className="text-2xl">Bull's Lodge NFT;</h2>
@@ -104,7 +121,7 @@ const Hero = () => {
         />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

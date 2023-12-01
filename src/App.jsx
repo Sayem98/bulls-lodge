@@ -1,5 +1,7 @@
 import { Route, Routes, Router } from "react-router-dom";
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { WagmiConfig } from "wagmi";
 import { arbitrum, mainnet } from "viem/chains";
@@ -43,6 +45,7 @@ const App = () => {
           {/* <Route path="/404" element={<PageNotFound />} /> */}
         </Routes>
       </WagmiConfig>
+      <ToastContainer />
     </>
   );
 };

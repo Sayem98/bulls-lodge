@@ -3,6 +3,7 @@ import useBullsLodge from "../../../hooks/useBullsLodge";
 import { useEffect } from "react";
 import { useAccount } from "wagmi";
 import Web3 from "web3";
+
 const Hero = () => {
   const [quantity, setQuantity] = useState(0);
   const { nftData, getWeb3, getBullsLodge } = useBullsLodge();
