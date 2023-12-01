@@ -1,39 +1,38 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ currentTab = "home" }) => {
-  const [hamClicked, setHamClicked] = useState(true)
+  const [hamClicked, setHamClicked] = useState(true);
   return (
     <header
-      className={`h-[90px]  flex justify-evenly py-6 pt-12 md:p-6 bg-gradient-to-b from-[#350035]  to-[#350035]  ${
+      className={`h-[90px]  flex justify-evenly py-6 items-center md:p-6 bg-gradient-to-b from-[#350035]  to-[#350035]  ${
         !hamClicked && "py-6 pt-8"
       } fixed top-0 left-0 w-full z-10`}
     >
-      {
-        <nav
+      <nav
+        className={`${
+          !hamClicked && "hidden"
+        }  flex gap-2 md:gap-8 text-[0.65rem] md:text-lg items-center`}
+      >
+        <Link
+          to="/"
           className={`${
-            !hamClicked && "hidden"
-          }  flex gap-2 md:gap-8 text-xs md:text-lg  items-center`}
+            currentTab === "home" ? "text-[#FF0099]" : "text-white"
+          }`}
         >
-          <Link
-            to="/"
-            className={`${
-              currentTab === "home" ? "text-[#FF0099]" : "text-white"
-            }`}
-          >
-            HOME
-          </Link>
-          <a href="#collection">COLLECTION</a>
-          <a href="#about">ABOUT</a>
-          <a href="#roadmap">ROADMAP</a>
-          <a href="#team">TEAM</a>
-          <a href="#faq">FAQ</a>
-        </nav>
-      }
+          HOME
+        </Link>
+        <a href="#collection">COLLECTION</a>
+        <a href="#about">ABOUT</a>
+        <a href="#roadmap">ROADMAP</a>
+        <a href="#team">TEAM</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
       <div
         className={`${
           hamClicked ? "hidden" : "flex gap-4"
-        } md:flex gap-8 items-center`}
+        } md:flex gap-3 items-center`}
       >
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="/assets/images/linkedin.png" width={32} alt="linkedin" />
@@ -58,7 +57,7 @@ const Navbar = ({ currentTab = "home" }) => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

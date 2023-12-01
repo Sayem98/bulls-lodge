@@ -1,5 +1,5 @@
-import Navbar from "../../components/Navbar/Navbar"
-import Hero from "./Hero/Hero"
+import Navbar from "../../components/Navbar/Navbar";
+import Hero from "./Hero/Hero";
 
 const Mint = () => {
   return (
@@ -7,7 +7,7 @@ const Mint = () => {
       <Navbar currentTab="mint" />
       <Hero />
     </>
-  )
-}
+  );
+};
 
-export default Mint
+export default Mint;

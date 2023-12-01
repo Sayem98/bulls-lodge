@@ -12,12 +12,16 @@
   "dependencies": {
     "@headlessui/react": "^1.7.14",
     "@splidejs/react-splide": "^0.7.12",
+    "@web3modal/wagmi": "^3.3.2",
     "aos": "^3.0.0-beta.6",
     "react": "^18.2.0",
     "react-collapsible": "^2.10.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "viem": "^1.19.9",
+    "wagmi": "^1.4.7",
+    "web3": "^1.7.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
