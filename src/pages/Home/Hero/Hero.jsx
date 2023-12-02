@@ -26,10 +26,14 @@ const Hero = () => {
   return (
     <section className="relative pt-32 md:mb-64 mb-12">
       <div className="flex font-Oswald text-center text-xl justify-center ">
-        <Link to="/mint">
+        <Link to={isCountdownComplete ? "/mint" : "#"}>
           <img
             className="absolute md:hidden left-0 w-[100%] scale-[0.95] "
-            src="/assets/images/heroHolder.png"
+            src={
+              isCountdownComplete
+                ? "/assets/images/heroHolder2.png"
+                : "/assets/images/heroHolder.png"
+            }
             alt=""
           />
         </Link>
@@ -51,7 +55,7 @@ const Hero = () => {
         </div>
       </div>
       <div className=" md:flex hidden justify-center">
-        <Link to="/mint">
+        <Link to={isCountdownComplete ? "/mint" : "#"}>
           <button className="font-Oswald font-bold border-4 hover:bg-gradient-to-b hover:from-[#EA00EF]  hover:to-[#FF0099]  border-[#FF0099] p-8 mb-4 text-5xl">
             {isCountdownComplete ? "MINT" : "MINT TBA"}
           </button>

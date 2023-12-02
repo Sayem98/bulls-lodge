@@ -60,10 +60,10 @@ const Hero = () => {
             <img src="/assets/images/mintLeft.png" alt="" />
           </div>
           <div className="w-[50%] md:w-1/4 text-center">
-            <div className="flex justify-center mb-2">
+            <div className="flex justify-center mb-2 text-xs w-[110%] md:w-full">
               <w3m-button />
             </div>
-            <div className="flex items-center justify-center py-6 text-sm gap-4 pt-10">
+            <div className="flex flex-col md:flex-row items-center justify-center py-6 text-sm gap-4 pt-10">
               <span>Quantity</span>
               <div className="flex gap-2 items-center w-[60%] md:w-[25%]">
                 <button
